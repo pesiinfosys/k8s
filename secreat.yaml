@@ -1,0 +1,25 @@
+# base64 encryption and decryption
+# commands
+# echo "<value>" | base64  ==> ex: echo "siva" | base64
+# echo "<encrypt-value>" | base64 --decode
+apiVersion: v1
+kind: Secret
+metadata:
+  name: nginx-secret
+data:
+  username: cGVzaTI0MQo=  # base64 encryption of pesi241 ## echo "pesi241" | base64
+  password: MTIzNAo=      # base64 encryption of 1234 ## echo "1234" | base64
+
+---
+# taking ALL secrets key vales as container enveronment variables
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    envFrom:
+    - secretRef:
+        name: nginx-secret
