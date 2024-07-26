@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: labels-pod
-  labes:
+  labels:
     environment: dev
     app: facebook
     region: India
