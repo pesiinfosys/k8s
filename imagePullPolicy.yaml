@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  namespace: siva
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    imagePullPolicy: Always # Always kubernetes fetch the image from dockerhub, not uses already fetched previous local image
+    ports:
+    - containerPort: 80
