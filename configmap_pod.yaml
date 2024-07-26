@@ -1,0 +1,19 @@
+apiversion: v1
+kind: Pod
+metadata: 
+  name: configmappod
+spec:
+  - containers:
+    name: almalinux
+    image: almalinux
+    env:
+    - name: TECHNOLOGY
+      valueFrom: 
+        configMapKeyRef:
+          name: coursedetails # The ConfigMap this value comes from
+          key: COURSE # The key to fetch
+    - name: TRAINER
+      valueFrom: 
+        configMapKeyRef:
+          name: coursedetails # The ConfigMap this value comes from
+          key: TRAINER
