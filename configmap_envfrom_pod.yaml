@@ -1,0 +1,12 @@
+# making ALL configmap kevy vales as container enveronment variables
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    envFrom:
+    - configMapKeyRef:
+        name: coursedetails
