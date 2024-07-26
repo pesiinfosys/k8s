@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    env: dev
+    app: frontend
+spec:
+  containers:
+  - name: nginx
+    image: nginx:stable
+    ports:
+      - containerPort: 80
+        name: http-web-svc # assigning name to the container port
+
+---
+# ClusterIP is the default service; so no need to mention service type
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    env: dev
+    app: frontend
+  ports:
+  - name: nginx-service-port
+    protocol: TCP
+    port: 80 # this port belongs to service 
+    targetPort: http-web-svc # here we can mention container port number or name.
