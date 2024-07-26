@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: course-details
+  name: coursedetails
 data:
   COURSE: Cloud_DevOps
   DURATION: 100
