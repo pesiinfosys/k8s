@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: coursedetails
 data:
-  COURSE: DevOps
-  DURATION: 100
-  TRAINER: SIVA
+  COURSE: "DevOps"
+  DURATION: "100"
+  TRAINER: "SIVA"
