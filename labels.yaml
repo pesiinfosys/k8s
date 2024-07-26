@@ -1,0 +1,13 @@
+apiversion: v1
+kind: Pod
+metadata:
+  name: labels-pod
+  labes:
+    environment: dev
+    app: facebook
+    region: India
+spec:
+  containers:
+  - name: almalinux
+    image: almalinux:latest
+    
