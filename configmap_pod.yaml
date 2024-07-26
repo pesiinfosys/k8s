@@ -4,8 +4,8 @@ metadata:
   name: nginx
 spec:
   containers:
-  - name: almalinux
-    image: almalinux
+  - name: nginx
+    image: nginx
     env:
     - name: TECHNOLOGY
       valueFrom: 
