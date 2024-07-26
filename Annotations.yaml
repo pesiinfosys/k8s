@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: Anootation-Pod
+  annotations:
+    com.name: siva.com
+    location/address: pandillapalli
+    app_name: facebook
+spec:
+  - name: nginx
+    image: nginx
