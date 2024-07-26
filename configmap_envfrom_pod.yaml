@@ -1,4 +1,4 @@
-# making ALL configmap kevy vales as container enveronment variables
+# making ALL configmap key vales as container enveronment variables
 apiVersion: v1
 kind: Pod
 metadata:
