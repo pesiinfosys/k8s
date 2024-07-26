@@ -1,0 +1,20 @@
+# NOTE: 1 CPU = 1000 milly cores  : Mi means Mega Bytes
+# requests : soft limit (which may excced)
+# limits: hard limit (which can't be exceed) this is done by kubelet
+apiVersion: v1
+kind: Pod
+metadata:
+  name: resource-limit-pod
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"   
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+
+    
