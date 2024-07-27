@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels: # these are deployment labels
+    app: nginx
+spec:
+  replicas: 3
+  selector: # these labels should match with pod labels
+    matchLabels:
+      app: nginx
+      env: dev
+      tier: frontend
+      project: pesi
+  template:
+    metadata:
+      labels:
+        app: nginx
+        env: dev
+        tier: frontend
+        project: pesi
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
