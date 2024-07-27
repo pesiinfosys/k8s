@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    env: dev
+    app: frontend
+spec:
+  containers:
+  - name: nginx
+    image: nginx:stable
+    ports:
+      - containerPort: 80
+        name: http-web-svc # assigning name to the container port
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  type: NodePort
+  selector:
+    env: dev
+    app: frontend
+  ports:
+  - name: nginx-service-port
+    protocol: TCP
+    port: 80 # this port belongs to service 
+    targetPort: http-web-svc # here we can mention container port number or name.
+      # nodePort Optional field
+      # By default and for convenience, the Kubernetes control plane
+      # will allocate a port from a range (default: 30000-32767)
+    nodePort: 30000 
